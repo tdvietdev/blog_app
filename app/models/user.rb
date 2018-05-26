@@ -6,8 +6,10 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: 255},
     format: {with: VALID_EMAIL_REGEX},
     uniqueness: {case_sensitive: false}
-  validates :password, presence: true, length: {minimum: 6}
   has_secure_password
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
+
+  scope :list_user, ->{select(:id, :name, :email).order created_at: :desc}
 
   def remember
     self.remember_token = User.new_token
@@ -21,6 +23,18 @@ class User < ApplicationRecord
 
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  def current_user? user
+    user == self
+  end
+
+  def self.search(search)
+    if search
+      where("name LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%")
+    else
+      all
+    end
   end
 
   class << self
