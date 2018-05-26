@@ -1,0 +1,43 @@
+user:
+  name:
+    max_length: 50
+  email:
+    max_length: 255
+  password:
+    min_length: 6
+  gravatar:
+    size: 80
+
+
+users:
+  index:
+    size_image: 50
+    per_page: 10
+  show:
+    microposts_per_page: 5
+  show_fl:
+    img_size: 30
+
+user_helper:
+  size: 80
+
+session_controller:
+  session: "1"
+
+shared:
+  user_info:
+    gravatar: 50
+
+static_pages:
+  home:
+    microposts_per_page: 5
+
+micropost:
+  content:
+    max_length: 400
+  picture:
+    size: 5
+
+uploader:
+  picture:
+    size: 400

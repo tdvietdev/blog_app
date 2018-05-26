@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   def logged_in_user
     unless logged_in?
       store_location
-      flash[:danger] = "Please log in."
+      flash[:danger] = t ".danger"
       redirect_to login_url
     end
   end
@@ -28,6 +28,6 @@ class ApplicationController < ActionController::Base
   def load_user
     @user = User.find_by id: params[:id]
     return if @user
-    flash.now[:danger] = "not found"
+    flash.now[:danger] = t ".not_found"
   end
 end
