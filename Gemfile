@@ -17,6 +17,7 @@ gem "jquery-rails", "~> 4.3", ">= 4.3.1"
 gem "faker", "1.7.3"
 gem "kaminari"
 gem "bootstrap-kaminari-views"
+gem "config"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

@@ -1,33 +1,203 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  users:
+    create:
+      info: "Please check your email to activate your account."
+      danger: "Create user not success"
+      success: "Welcome to the Sample App!"
+    update:
+      success: "Profile updated"
+    destroy:
+      success: "User deleted"
+      danger: "User not deleted"
+    following:
+      title: "Following"
+    followers:
+      title: "Followers"
+    new:
+      title: "Sign up"
+      button: "Create my account"
+      confirmation: "Confirmation"
+      not_found: "Not found user!"
+    edit:
+      title: "Edit user"
+      h1: "Update your profile"
+      save: "Save"
+      change: "Change"
+      button: "Save change"
+      password_cf: "Confirm password"
+      danger: "Please log in."
+      not_found: "Not found!"
+    index:
+      title: "All user"
+      detele: "Delete"
+      search: "Search"
+    user:
+      accept_del: "Are you sure?"
+      detele: "Delete"
+    show:
+      not_found: "Not found user!"
+      post: "Microposts"
+    show_follow:
+      not_found: "Not found user!"
+      post: "Microposts"
+    load_user:
+      not_found: "Not found user!"
+    verify_user:
+      verify_user: "Not correct user!"
+    follow:
+      submit: "Follow"
+    unfollow:
+      submit: "Unfollow"
+
+  sessions:
+    create:
+      warning_active: "Account not activated.Check your email for the activation link."
+      danger: "Invalid email/password combination"
+    new:
+      login: "Log in"
+      new: "User create?"
+      signup: "Sign up now!"
+      span_remember: "Remember me on this computer"
+      forgot: "Forgot your password?"
+
+  application:
+    logged_in_user:
+      danger: "Please log in."
+    full_title:
+      base_title: "Ruby on Rails Tutorial Sample App"
+    hello:
+      html: "Hello world"
+    load_user:
+      danger: "Not find user"
+
+  layouts:
+      footer:
+        the: "The "
+        rails: "Ruby on Rails Tutorial"
+        by: "by"
+        about: "About"
+        contact: "Contact"
+        new: "News"
+      header:
+        sample: "Sample App"
+        home: "Home"
+        help: "Help"
+        login: " Login"
+        logout: "Logout"
+        user: "Users"
+        account: "Account"
+        profile: "Profile"
+        settings: "Settings"
+
+  static_pages:
+    about:
+      about: "About"
+      the: "The "
+      rails: "Ruby on Rails Tutorial"
+      is: "is a"
+      book: "book"
+      and: "and"
+      screen: "screencast series"
+      a: "to teach web development with"
+      ruby: "Ruby on Rails"
+      sample: ". This is the sample application for the tutorial."
+    contact:
+      contact: "Contact"
+      p: "Contact the Ruby on Rails Tutorial about the sample app at the"
+      contact_page: "contact page."
+    help:
+      help: "Help"
+      p: "Get help on the Ruby on Rails Tutorial at the"
+      help_page: "Rails Tutorial help page"
+      a: "To get help on this sample app, see the"
+      rails: "Ruby on Rails Tutorial"
+      name: " book."
+    home:
+      title: "Home"
+      h1: "Welcome to the Sample App"
+      h2: "This is the home page for the"
+      rails: "Ruby on Rails Tutorial"
+      h2_end: "sample application."
+      signup: "Sign up now!"
+      feed: "Micropost Feed"
+
+  shared:
+    error_messages:
+      error: "The form contains"
+      pluralize: "error"
+    user_info:
+      my_profile: "View my profile"
+
+  user_mailer:
+    account_activation:
+      subject: "Account activation"
+      sample: "Sample App"
+      hi: "Hi"
+      welcome: "Welcome to the Sample App! Click on the link below to activate your account:"
+      activate: "Activate"
+    password_reset:
+      title: "Password reset"
+      text_link: "To reset your password click the link below:"
+      link_to: "Reset password"
+      expire: "This link will expire in two hours."
+      note: "If you did not request your password to be reset,
+        please ignore this email and your password will stay as it is."
+      subject: "Password reset"
+
+  account_activations:
+    edit:
+      success: "Account activated!"
+      danger_active: "Invalid activation link"
+
+  password_resets:
+      create:
+        info: "Email sent with password reset instructions"
+        danger: "Email address not found"
+      update:
+        error: "Can't be empty"
+        success: "Password has been reset."
+      get_user:
+        danger: "Email address not found."
+      valid_user:
+        danger: "User not valid."
+      check_expiration:
+        danger: "Password reset has expired."
+      new:
+        title: "Forgot password"
+        submit: "Submit"
+      edit:
+        title: "Reset password"
+        confirmation: "Confirmation"
+        update: "Update password"
+  microposts:
+    create:
+      success: "Micropost created!"
+    destroy:
+      success: "Micropost deleted"
+      danger: "Micropost not deleted"
+    correct_user:
+      danger: "Not find micropost"
+    micropost:
+      post: "Post"
+      ago: "ago."
+      delete: "Delete"
+      confirm: "You sure?"
+  shared:
+    error_messages:
+      error: "The form contains"
+      pluralize: "Error"
+    user_info:
+      my_profile: "View my profile"
+      micropost: "Micropost"
+    micropost_form:
+      content_placehoder: "Compose new micropost..."
+      submit: "Post"
+      size_image: "Maximum file size is 5MB. Please choose a smaller file."
+      change: "Change"
+    stats:
+      following: "Following"
+      followers: "Followers"
+
+  model:
+    mocropost:
+      error: "Should be less than 5MB"

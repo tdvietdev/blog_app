@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  get 'set_language/en'
-  get 'set_language/vi'
-  get "sessions/new"
   root "static_pages#home"
+
+  get "set_language/en"
+  get "set_language/vi"
+
+  get "sessions/new"
+
   get  "/help",    to: "static_pages#help"
   get  "/about",   to: "static_pages#about"
   get  "/contact", to: "static_pages#contact"
