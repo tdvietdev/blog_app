@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   def verify_user
     @user = User.find_by id: params[:id]
-    redirect_to root_url unless @user.current_user? current_user
+    redirect_to root_url unless @user.current_user?(current_user)
   end
 
   def verify_admin
@@ -28,6 +28,12 @@ class ApplicationController < ActionController::Base
   def load_user
     @user = User.find_by id: params[:id]
     return if @user
+    flash.now[:danger] = t ".not_found"
+    end
+
+  def load_entry
+    @entry = Entry.find_by id: params[:id]
+    return if @entry
     flash.now[:danger] = t ".not_found"
   end
 end
