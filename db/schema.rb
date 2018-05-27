@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_26_092454) do
+ActiveRecord::Schema.define(version: 2018_05_27_082821) do
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "type", limit: 30
+    t.integer "width"
+    t.integer "height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.text "content"
+    t.boolean "active"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.text "description"
+    t.index ["user_id", "created_at"], name: "index_entries_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_entries_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

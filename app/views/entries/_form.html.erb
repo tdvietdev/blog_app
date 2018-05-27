@@ -1,0 +1,28 @@
+<%= form_for @entry do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %>
+
+  <%= f.label :description%>
+  <%= f.text_area :description, class: "form-control" %>
+
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Compose new micropost...",  class: "ckeditor"  %>
+  </div>
+
+  <%= f.label :active%>
+  <%= f.check_box :active, class: "form-control" %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
+
+<script type="text/javascript" charset="UTF-8">
+    $(document).ready(function(){
+        if ($("textarea").length > 0){
+            var data = $(".ckeditor");
+            $.each(data,function(i){
+                CKEDITOR.replace(data[i].id)
+            });
+        }
+    });
+</script>

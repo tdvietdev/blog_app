@@ -18,6 +18,9 @@ gem "faker", "1.7.3"
 gem "kaminari"
 gem "bootstrap-kaminari-views"
 gem "config"
+gem "mini_magick"
+gem "carrierwave"
+gem "ckeditor", "~> 4.2", ">= 4.2.4"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
@@ -32,6 +35,7 @@ group :development do
   end
 group :production do
   gem "pg"
+  gem "fog", "1.42"
 end
 
 group :test do
