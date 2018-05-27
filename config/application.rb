@@ -16,4 +16,5 @@ module BlogApp
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
   end
+  config.action_view.embed_authenticity_token_in_remote_forms = true
 end

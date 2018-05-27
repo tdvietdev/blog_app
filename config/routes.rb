@@ -19,4 +19,10 @@ Rails.application.routes.draw do
   resources :users
   resources :entries
   resources :account_activations, only: [:edit]
+  resources :relationships, only: [:create, :destroy]
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 end

@@ -45,6 +45,18 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def following
+    @title = "Following"
+    @users = @user.following.page(params[:page]).per 5
+    render "show_follow"
+  end
+
+  def followers
+    @title = "Followers"
+    @users = @user.followers.page(params[:page]).per 5
+    render "show_follow"
+  end
+  
   private
 
   def user_params
