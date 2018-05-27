@@ -6,7 +6,7 @@
     <% if current_user.current_user?(entry.user) %>
       <%= link_to "delete", entry, method: :delete,
                   data: { confirm: t(".confirm") } %>
-      <%= link_to "edit", edit_entry_path %>
+      <%= link_to "edit", edit_entry_path(entry) %>
     <% end %>
   </span>
 </li>
