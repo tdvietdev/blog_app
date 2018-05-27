@@ -9,7 +9,9 @@ class UsersController < ApplicationController
     @users = User.search(params[:search]).page(params[:page]).per 5
   end
 
-  def show; end
+  def show
+    @entries = @user.entries.page(params[:page]).per 5
+  end
 
   def new
     @user = User.new

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   root "static_pages#home"
 
   get "set_language/en"
@@ -16,6 +17,6 @@ Rails.application.routes.draw do
   delete "/logout",  to: "sessions#destroy"
   
   resources :users
+  resources :entries
   resources :account_activations, only: [:edit]
-
 end

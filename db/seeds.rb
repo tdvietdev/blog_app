@@ -17,3 +17,11 @@ User.create!(name:  "Example User",
                activated: true,
                activated_at: Time.zone.now)
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(10)
+  title = Faker::Lorem.sentence(3)
+  users.each { |user| user.entries.create!(title: title, content: content) }
+end
+
