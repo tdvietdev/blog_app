@@ -1,0 +1,28 @@
+
+<div class="media" id = "root-comment-<%= comment.id %>">
+  <a class="pull-left" href="#">
+    <img class="media-object" src="http://placehold.it/64x64" alt="">
+  </a>
+  <div class="media-body" id = "comment-<%= comment.id %>">
+    <h4 class="media-heading"><%= comment.user.name %>
+      <small>August 25, 2014 at 9:30 PM</small>
+    </h4>
+    <div  id = "content-<%= comment.id %>">
+      <p><%= comment.content %></p>
+    </div>
+    <% if comment.parent? and logged_in? %>
+      <%= link_to "Reply", new_reply_comment_path(comment), remote: true,
+        id: "link_rep-#{comment.id}" %>
+    <% end %>
+    <% if comment.user.current_user?(current_user) %>
+      <%= link_to "Edit", edit_comment_path(comment), remote: true %>
+      <%= link_to "delete", comment, method: :delete,
+                  data: { confirm: "You sure?" }, remote: true %>
+     <% end %>
+    <br>
+    <%= render comment.replies if comment.replies.any? %>
+    <br>
+  </div>
+</div>
+
+

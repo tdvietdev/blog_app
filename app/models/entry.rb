@@ -4,7 +4,7 @@ class Entry < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true
   validates :title, presence: true, length: {maximum: 300}
-
+  has_many :comments
 
   scope :by_followed, (lambda do |user_id|
     where("user_id IN (SELECT followed_id FROM relationships

@@ -5,7 +5,9 @@ class EntriesController < ApplicationController
     @entry = current_user.entries.build if logged_in?
   end
 
-  def show; end
+  def show
+    @comments = @entry.comments.root_comment
+  end
 
   def edit; end
 
