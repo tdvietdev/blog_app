@@ -1,0 +1,7 @@
+<% if @comment.parent? %>
+  $(".comment").prepend("<%= j render @comment %>");
+  $("textarea").val("")
+<% else  %>
+  $("#reply_form-<%= j @comment.parent_id.to_s %>").before("<%= j render @comment %>");
+  $("#ta-<%= j @comment.parent_id.to_s %>").val("")
+<% end %>

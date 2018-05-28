@@ -16,4 +16,5 @@
 //= require activestorage
 //= require turbolinks
 //= require ckeditor/init
+//= require comments.js.erb
 //= require_tree .

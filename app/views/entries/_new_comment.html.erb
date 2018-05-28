@@ -1,0 +1,13 @@
+<div class="well">
+  <h4>Leave a Comment:</h4>
+  <%= form_for @entry.comments.build, remote: true do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <%= f.hidden_field :entry_id %>
+    <%= f.hidden_field :parent_id %>
+    <div class="form-group">
+      <%= f.text_area :content, class: "form-control",rows: "3" %>
+    </div>
+    <%= f.submit "Gui", class: "btn btn-primary" %>
+  <% end %>
+</div>
+

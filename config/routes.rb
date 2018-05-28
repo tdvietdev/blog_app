@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   mount Ckeditor::Engine => '/ckeditor'
   root "static_pages#home"
 
@@ -24,5 +25,12 @@ Rails.application.routes.draw do
     member do
       get :following, :followers
     end
+    end
+
+  resources :comments do
+    member do
+      get :new_reply
+    end
   end
+  resources :comments
 end

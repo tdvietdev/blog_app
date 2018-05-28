@@ -1,0 +1,12 @@
+<div class="well" id ="reply_form-<%= @comment.new_reply.parent_id %>">
+  <%= form_for @comment.new_reply, remote: true do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <%= f.hidden_field :entry_id %>
+    <%= f.hidden_field :parent_id %>
+    <div class="form-group">
+      <%= f.text_area :content, class: "form-control",rows: "3", id: "ta-#{@comment.new_reply.parent_id}"  %>
+    </div>
+    <%= f.submit "Gui", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
