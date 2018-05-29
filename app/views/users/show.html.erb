@@ -2,16 +2,17 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
+      <%= gravatar_for @user %>
       <h1>
-        <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
     </section>
     <section class="stats">
       <%= render "shared/stats" %>
-      <%= render "follow_form" if logged_in? %>
+
     </section>
-    <%= link_to "New post", new_entry_path %>
+    <%= render "follow_form" if logged_in? %>
+    <%= link_to "New post", new_entry_path, class: "btn btn-success" %>
   </aside>
   <div class="col-md-8">
     <% if @user.entries.any? %>
