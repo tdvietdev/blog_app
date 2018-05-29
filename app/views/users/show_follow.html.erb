@@ -1,14 +1,14 @@
 <% provide(:title, @title) %>
 <div class="row">
   <aside class="col-md-3">
-    <section class="user_info">
+    <section class="user_info text-center">
       <%= gravatar_for @user %>
       <h2><%= @user.name %></h2>
       <span><%= link_to "view my profile", @user, class: "btn btn-success" %></span>
       <br>
       <span><b>Microposts:</b> <%= @user.entries.count %></span>
     </section>
-    <section class="stats">
+    <section class="stats text-center">
       <%= render "shared/stats" %>
       <% if @users.any? %>
         <div class="user_avatars">

@@ -20,14 +20,22 @@ end
 
 users = User.order(:created_at).take(6)
 50.times do
-  content = Faker::Lorem.sentence(10)
+  content = Faker::Lorem.sentence(80)
   title = Faker::Lorem.sentence(3)
-  users.each { |user| user.entries.create!(title: title, content: content) }
+  active = true
+  users.each { |user| user.entries.create!(title: title, content: content, active: active) }
+
 end
 
 users = User.all
+entry = Entry.all[1..30]
+
 user  = users.first
 following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+rd = Random.new
+
+users.each {|user| user.like entry[rd.rand(1..30)]}
