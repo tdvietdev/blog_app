@@ -17,9 +17,10 @@ class User < ApplicationRecord
     uniqueness: {case_sensitive: false}
   has_secure_password
   validates :password, presence: true, length: {minimum: Settings.user.password.min_length}, allow_nil: true
+  validate  :avatar_size
 
   scope :list_user, ->{select(:id, :name, :email).order created_at: :desc}
-
+  mount_uploader :avatar, AvatarUploader
   def remember
     self.remember_token = User.new_token
     update_attribute :remember_digest, User.digest(remember_token)
@@ -85,5 +86,11 @@ class User < ApplicationRecord
   def create_activation_digest
     self.activation_token  = User.new_token
     self.activation_digest = User.digest(activation_token)
+  end
+
+  def avatar_size
+    if avatar.size > 5.megabytes
+      errors.add(:avatar, "should be less than 5MB")
+    end
   end
 end

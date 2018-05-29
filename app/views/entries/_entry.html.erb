@@ -1,12 +1,27 @@
-<li id="entry-<%= entry.id %>">
-  <span class="user"><%= link_to entry.title, entry %></span>
-  <span class="content"><%= entry.description %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(entry.created_at) %> ago.
-    <% if current_user.current_user?(entry.user) %>
-      <%= link_to "delete", entry, method: :delete,
-                  data: { confirm: t(".confirm") } %>
-      <%= link_to "edit", edit_entry_path(entry) %>
-    <% end %>
-  </span>
+<li>
+  <table>
+    <tr>
+      <td rowspan="4"><a class="pull-left" href="<%= user_path(entry.user) %>">
+        <%= gravatar_for(entry.user, "avatar_entry") %>
+      </a></td>
+      <td><span class="user"><%= link_to entry.title, entry %></span></td>
+    </tr>
+    <tr>
+      <td><span class="content"><%= entry.description || "No description" %></span></td>
+    </tr>
+    <tr>
+      <td class="timestamp"><span>Posted <%= time_ago_in_words(entry.created_at) %> ago.</span>
+      by <span><b><%= link_to entry.user.name, entry.user %></b></span>
+      </td>
+    </tr>
+    <tr>
+      <td class="content">
+        <% if current_user.current_user?(entry.user) %>
+          <%= link_to "delete", entry, method: :delete,
+                      data: { confirm: t(".confirm") } %>
+          <%= link_to "edit", edit_entry_path(entry) %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
 </li>

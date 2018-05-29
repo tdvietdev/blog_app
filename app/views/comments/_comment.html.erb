@@ -1,10 +1,10 @@
 
 <div class="media" id = "root-comment-<%= comment.id %>">
-  <a class="pull-left" href="#">
-    <img class="media-object" src="http://placehold.it/64x64" alt="">
+  <a class="pull-left" href="<%= user_path(comment.user) %>">
+    <%= gravatar_for(comment.user, "avatar_comment") %>
   </a>
   <div class="media-body" id = "comment-<%= comment.id %>">
-    <h4 class="media-heading"><%= comment.user.name %>
+    <h4 class="media-heading"><%= link_to comment.user.name, comment.user %>
       <small>August 25, 2014 at 9:30 PM</small>
     </h4>
     <div  id = "content-<%= comment.id %>">
@@ -17,7 +17,7 @@
     <% if comment.user.current_user?(current_user) %>
       <%= link_to "Edit", edit_comment_path(comment), remote: true %>
       <%= link_to "delete", comment, method: :delete,
-                  data: { confirm: "You sure?" }, remote: true %>
+        data: {confirm: "You sure?"}, remote: true %>
      <% end %>
     <br>
     <%= render comment.replies if comment.replies.any? %>
