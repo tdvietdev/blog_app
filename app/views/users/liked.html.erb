@@ -2,8 +2,8 @@
 <div class="row">
   <%= render "user_info" %>
   <div class="col-md-8">
-    <% if @user.entries.any? %>
-      <h3>Microposts (<%= @user.entries.count %>)</h3>
+    <% if @entries.any? %>
+      <h3>Liked Post (<%= current_user.liking.count %>)</h3>
       <ol class="microposts">
         <%= render @entries %>
       </ol>

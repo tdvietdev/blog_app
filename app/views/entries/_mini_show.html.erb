@@ -1,9 +1,7 @@
+<% @entries.each do |entry| %>
 <li>
   <table>
     <tr>
-      <td rowspan="5"><a class="pull-left" href="<%= user_path(entry.user) %>">
-        <%= gravatar_for(entry.user, "avatar_entry") %>
-      </a></td>
       <td><span class="user"><%= link_to entry.title, entry %></span></td>
     </tr>
     <tr>
@@ -11,7 +9,7 @@
     </tr>
     <tr>
       <td class="timestamp"><span>Posted <%= time_ago_in_words(entry.created_at) %> ago.</span>
-      by <span><b><%= link_to entry.user.name, entry.user %></b></span>
+        by <span><b><%= link_to entry.user.name, entry.user %></b></span>
       </td>
     </tr>
     <tr>
@@ -33,3 +31,4 @@
     </tr>
   </table>
 </li>
+<% end %>
