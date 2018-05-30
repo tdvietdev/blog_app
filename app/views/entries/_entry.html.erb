@@ -1,7 +1,7 @@
 <li>
   <table>
     <tr>
-      <td rowspan="4"><a class="pull-left" href="<%= user_path(entry.user) %>">
+      <td rowspan="5"><a class="pull-left" href="<%= user_path(entry.user) %>">
         <%= gravatar_for(entry.user, "avatar_entry") %>
       </a></td>
       <td><span class="user"><%= link_to entry.title, entry %></span></td>
@@ -12,6 +12,12 @@
     <tr>
       <td class="timestamp"><span>Posted <%= time_ago_in_words(entry.created_at) %> ago.</span>
       by <span><b><%= link_to entry.user.name, entry.user %></b></span>
+      </td>
+    </tr>
+    <tr>
+      <td class="timestamp">
+        <span class="glyphicon glyphicon-thumbs-up"></span> <%= entry.liked.count %> Like &nbsp;&nbsp;
+        <span class="glyphicon glyphicon-comment"></span> <%= entry.comments.count %> Comment
       </td>
     </tr>
     <tr>

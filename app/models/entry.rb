@@ -5,8 +5,13 @@ class Entry < ApplicationRecord
   validates :content, presence: true
   validates :title, presence: true, length: {maximum: 300}
   has_many :comments
+  has_many :likes
+  has_many :liked, through: :likes, source: :user
 
-
+  def test
+    arr = Like.select("entry_id, COUNT(id) as total_like").group(:entry_id).order("total_like desc").limit 5
+    arr.map!{|a| Entry.find_by id: a.entry_id}
+  end
 
   if Rails.env.production?
     scope :by_followed, (lambda do |user_id|

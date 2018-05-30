@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :comments
+  has_many :likes
+  has_many :liking, through: :likes, source: :entry
   validates :name, presence: true, length: {maximum: Settings.user.name.max_length}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: Settings.user.email.max_length},
@@ -50,8 +52,23 @@ class User < ApplicationRecord
 
   def following? other_user
     following.include?other_user
+    end
+
+  def liking? entry
+    liking.include? entry
   end
 
+  def like entry
+    liking << entry
+    end
+
+  def unlike entry
+    liking.destroy entry
+  end
+
+  def current_like entry
+    likes.find_by entry_id: entry.id
+  end
 
   def self.search search
     if search

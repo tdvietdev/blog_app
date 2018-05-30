@@ -1,0 +1,8 @@
+<%= form_for(current_user.likes.build, remote: true) do |f| %>
+  <div><%= hidden_field_tag :entry_id, @entry.id %></div>
+  <div><%= hidden_field_tag :user_id, current_user.id %></div>
+  <button type="submit" class="btn btn-default">
+    <span class="glyphicon glyphicon-thumbs-down"></span> Liked
+  </button>
+  <%= @entry.liked.count %> nguoi da thich bai viet nay
+<% end %>
