@@ -194,6 +194,8 @@ en:
   entries:
     create:
       success: "Entry created!"
+    update:
+      success: "Entry updated!"
     destroy:
       success: "Micropost deleted"
       danger: "Micropost not deleted"
@@ -224,6 +226,9 @@ en:
     new:
       button: "Post"
       title: "New post"
+    edit:
+      button: "Post"
+      title: "Edit post"
 
   shared:
     error_messages:

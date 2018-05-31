@@ -6,11 +6,11 @@ class UsersController < ApplicationController
   before_action :verify_admin, only: :destroy
 
   def index
-    @users = User.search(params[:search]).page(params[:page]).per 5
+    @users = User.search(params[:search]).page(params[:page]).per Settings.per_page
   end
 
   def show
-    @entries = @user.entries.page(params[:page]).per 5
+    @entries = @user.entries.page(params[:page]).per Settings.per_page
   end
 
   def new
@@ -47,26 +47,26 @@ class UsersController < ApplicationController
 
   def following
     @title = t ".title"
-    @users = @user.following.page(params[:page]).per 5
+    @users = @user.following.page(params[:page]).per Settings.per_page
     render "show_follow"
   end
 
   def followers
     @title = t ".title"
-    @users = @user.followers.page(params[:page]).per 5
+    @users = @user.followers.page(params[:page]).per Settings.per_page
     render "show_follow"
   end
 
   def liked
-    @entries = current_user.liking.page(params[:page]).per 5
+    @entries = current_user.liking.page(params[:page]).per Settings.per_page
   end
 
   def draft
-    @entries = Entry.draft(current_user).page(params[:page]).per 5
+    @entries = Entry.draft(current_user).page(params[:page]).per Settings.per_page
   end
 
   def actived
-    @entries = Entry.actived(current_user).page(params[:page]).per 5
+    @entries = Entry.actived(current_user).page(params[:page]).per Settings.per_page
   end
   
   private

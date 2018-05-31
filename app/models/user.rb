@@ -70,6 +70,10 @@ class User < ApplicationRecord
     likes.find_by entry_id: entry.id
   end
 
+  def activate
+    update_attributes activated: true, activated_at: Time.zone.now
+  end
+
   def self.search search
     if search
       where "name LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%"
@@ -106,7 +110,7 @@ class User < ApplicationRecord
   end
 
   def avatar_size
-    if avatar.size > 5.megabytes
+    if avatar.size > Settings.micropost.picture.size.megabytes
       errors.add(:avatar, t(".error"))
     end
   end

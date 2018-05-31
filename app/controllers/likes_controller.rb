@@ -10,7 +10,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.find_by(id: params[:id])
+    @like = Like.find_by id: params[:id]
     @entry = @like.entry
     @like.destroy
     respond_to do |format|

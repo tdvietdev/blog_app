@@ -8,6 +8,7 @@ user:
   gravatar:
     size: 80
 
+per_page: 5
 
 users:
   index:
@@ -32,11 +33,12 @@ static_pages:
   home:
     microposts_per_page: 5
 
-micropost:
-  content:
-    max_length: 400
-  picture:
-    size: 5
+entry:
+  title:
+    max_length: 300
+  most_present:
+    max_length: 5
+
 
 uploader:
   picture:
