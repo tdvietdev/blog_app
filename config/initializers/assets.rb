@@ -15,4 +15,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile +=%w( ckeditor/filebrowser/images/gal_del.png )
 Rails.application.config.assets.precompile += %w( ckeditor/*)
-Rails.application.config.assets.precompile += %w( comments.js.erb )
+

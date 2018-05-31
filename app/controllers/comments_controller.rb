@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def new; end
 
   def create
-    @comment = current_user.comments.build(comment_params)
+    @comment = current_user.comments.build comment_params
     if @comment.save!
       respond_to do |format|
         format.html {redirect_to @comment.entry}

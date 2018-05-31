@@ -3,24 +3,24 @@ class Entry < ApplicationRecord
   scope :order_by_created_at, ->{where(active: true).order(created_at: :desc)}
   validates :user_id, presence: true
   validates :content, presence: true
-  validates :title, presence: true, length: {maximum: 300}
+  validates :title, presence: true, length: {maximum: Settings.entry.title.max_length}
   has_many :comments
   has_many :likes
   has_many :liked, through: :likes, source: :user
 
-
   class << self
     def most_present
-      arr = Like.select("entry_id, COUNT(id) as total_like").group(:entry_id).order("total_like desc").limit 5
+      arr = Like.select("entry_id, COUNT(id) as total_like").group(:entry_id).order("total_like desc").
+        limit Settings.entry.most_present.max_length
       return arr.map{|a| Entry.find_by id: a.entry_id} if arr
     end
 
     def draft user
-      where(active: false, user_id: user.id)
+      where active: false, user_id: user.id
     end
 
     def actived user
-      where(active: true, user_id: user.id)
+      where active: true, user_id: user.id
     end
 
 

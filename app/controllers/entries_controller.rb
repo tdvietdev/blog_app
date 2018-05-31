@@ -12,7 +12,7 @@ class EntriesController < ApplicationController
   def edit; end
 
   def create
-    @entry = current_user.entries.build(entry_params)
+    @entry = current_user.entries.build entry_params
     if @entry.save
       flash[:success] = t ".success"
       redirect_to root_url
@@ -43,7 +43,7 @@ class EntriesController < ApplicationController
   end
 
   def verify_entry
-    @entries = current_user.entries.find_by(id: params[:id])
+    @entries = current_user.entries.find_by id: params[:id]
     redirect_to root_url if @entries.nil?
   end
 end
