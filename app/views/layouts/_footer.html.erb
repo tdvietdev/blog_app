@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-lg-12">
       <p>
-        <%= link_to_unless I18n.locale == :en, "English", set_language_en_path %>
+        <%= link_to_unless I18n.locale == :en, t(".english"), set_language_en_path %>
         |
-        <%= link_to_unless I18n.locale == :vi, "Viet Nam", set_language_vi_path %>
+        <%= link_to_unless I18n.locale == :vi, t(".vietnam"), set_language_vi_path %>
       </p>
-      <p>Copyright &copy; Your Website 2018</p>
+      <p>Copyright &copy; 2018</p>
     </div>
   </div>
 </footer>

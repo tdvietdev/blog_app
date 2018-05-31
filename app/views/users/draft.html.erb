@@ -3,7 +3,7 @@
   <%= render "user_info" %>
   <div class="col-md-8">
     <% if @user.entries.any? %>
-      <h3>Microposts (<%= Entry.draft(current_user).count %>)</h3>
+      <h3><%= t ".draft" %> (<%= Entry.draft(current_user).count %>)</h3>
       <ol class="microposts">
         <%= render "entries/mini_show" %>
       </ol>

@@ -36,10 +36,11 @@ en:
       detele: "Delete"
     show:
       not_found: "Not found user!"
-      post: "Microposts"
+      post: "Posts"
     show_follow:
       not_found: "Not found user!"
-      post: "Microposts"
+      post: "Posts"
+      profile: "View my profile"
     load_user:
       not_found: "Not found user!"
     verify_user:
@@ -48,7 +49,30 @@ en:
       submit: "Follow"
     unfollow:
       submit: "Unfollow"
+    form:
+      size_image: "Maximum file size is 5MB. Please choose a smaller file."
+    unfollow:
+      submit: "Unfollow"
+    user_info:
+      new: "New post"
+      liked: "Liked"
+      draft: "Draft"
+      actived: "Actived"
+    actived:
+      post: "Post"
+    draft:
+      draft: "Draft post"
+    liked:
+      liked: "Liked post"
 
+  comments:
+    comment:
+      commented: "Commented"
+      ago: "ago."
+      reply: "Reply"
+      edit: "Edit"
+      delete: "Delete"
+      confirm: "You sure?"
   sessions:
     create:
       warning_active: "Account not activated.Check your email for the activation link."
@@ -72,12 +96,8 @@ en:
 
   layouts:
       footer:
-        the: "The "
-        rails: "Ruby on Rails Tutorial"
-        by: "by"
-        about: "About"
-        contact: "Contact"
-        new: "News"
+        vietnam: "Vietnamese"
+        english: "English"
       header:
         sample: "Sample App"
         home: "Home"
@@ -119,7 +139,8 @@ en:
       rails: "Ruby on Rails Tutorial"
       h2_end: "sample application."
       signup: "Sign up now!"
-      feed: "Micropost Feed"
+      feed: "Post Feed"
+      most: "Most present"
 
   shared:
     error_messages:
@@ -169,19 +190,41 @@ en:
         title: "Reset password"
         confirmation: "Confirmation"
         update: "Update password"
-  microposts:
+
+  entries:
     create:
-      success: "Micropost created!"
+      success: "Entry created!"
     destroy:
       success: "Micropost deleted"
       danger: "Micropost not deleted"
     correct_user:
       danger: "Not find micropost"
-    micropost:
+    entry:
       post: "Post"
       ago: "ago."
       delete: "Delete"
       confirm: "You sure?"
+    form:
+      content_placehoder: "Compose new micropost..."
+    like:
+      you_and: "You and "
+      other_liked: " other people liked this post"
+      people_liked: "other people liked this post"
+    mini_show:
+      confirm: "You sure?"
+      delete: "Delete"
+      edit: "Edit"
+    new_comment:
+      submit: "Comment"
+    unlike:
+      people_liked: "other people liked this post"
+    show:
+      posted: "Posted on"
+      by: "by"
+    new:
+      button: "Post"
+      title: "New post"
+
   shared:
     error_messages:
       error: "The form contains"
@@ -190,7 +233,6 @@ en:
       my_profile: "View my profile"
       micropost: "Micropost"
     micropost_form:
-      content_placehoder: "Compose new micropost..."
       submit: "Post"
       size_image: "Maximum file size is 5MB. Please choose a smaller file."
       change: "Change"

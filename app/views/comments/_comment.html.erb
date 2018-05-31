@@ -1,28 +1,26 @@
-
-<div class="media" id = "root-comment-<%= comment.id %>">
+<div class="media" id= "root-comment-<%= comment.id %>">
   <a class="pull-left" href="<%= user_path(comment.user) %>">
     <%= gravatar_for(comment.user, "avatar_comment") %>
   </a>
   <div class="media-body" id = "comment-<%= comment.id %>">
     <h4 class="media-heading"><%= link_to comment.user.name, comment.user %>
-      <small>August 25, 2014 at 9:30 PM</small>
+      <small><%= t(".commented") + " "+time_ago_in_words(comment.created_at) +
+        " " + t(".ago") %></small>
     </h4>
     <div  id = "content-<%= comment.id %>">
       <p><%= comment.content %></p>
     </div>
     <% if comment.parent? and logged_in? %>
-      <%= link_to "Reply", new_reply_comment_path(comment), remote: true,
+      <%= link_to t(".reply"), new_reply_comment_path(comment), remote: true,
         id: "link_rep-#{comment.id}" %>
     <% end %>
     <% if comment.user.current_user?(current_user) %>
-      <%= link_to "Edit", edit_comment_path(comment), remote: true %>
-      <%= link_to "delete", comment, method: :delete,
-        data: {confirm: "You sure?"}, remote: true %>
+      <%= link_to t(".edit"), edit_comment_path(comment), remote: true %>
+      <%= link_to t(".delete"), comment, method: :delete,
+        data: {confirm: t(".confirm")}, remote: true %>
      <% end %>
     <br>
     <%= render comment.replies if comment.replies.any? %>
     <br>
   </div>
 </div>
-
-

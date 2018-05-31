@@ -22,9 +22,9 @@
       <td class="content">
         <% if logged_in? %>
           <% if current_user.current_user?(entry.user) %>
-            <%= link_to "delete", entry, method: :delete,
+            <%= link_to t(".delete"), entry, method: :delete,
                         data: { confirm: t(".confirm") } %>
-            <%= link_to "edit", edit_entry_path(entry) %>
+            <%= link_to t(".edit"), edit_entry_path(entry) %>
           <% end %>
         <% end %>
       </td>
