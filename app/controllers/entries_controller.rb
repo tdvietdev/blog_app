@@ -14,7 +14,7 @@ class EntriesController < ApplicationController
   def create
     @entry = current_user.entries.build(entry_params)
     if @entry.save
-      flash[:success] = "Entry created!"
+      flash[:success] = t ".success"
       redirect_to root_url
     else
       render :new

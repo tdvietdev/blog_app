@@ -4,11 +4,11 @@
     <button type="submit" class="btn btn-default btn-success">
       <span class="glyphicon glyphicon-thumbs-up"></span> Liked
     </button>
-    Ban va <%= @entry.liked.count - 1 %> nguoi khac da thich bai viet nay
+    <%= t ".you_and" %><%= @entry.liked.count - 1 %> <%= t ".other_liked" %>
   <% end %>
 <% else %>
   <button type="button" class="btn btn-default btn-success">
     <span class="glyphicon glyphicon-thumbs-up"></span> Like
   </button>
-  <%= @entry.liked.count %> nguoi khac da thich bai viet nay
+  <%= @entry.liked.count %> <%= t ".people_liked" %>
 <% end %>

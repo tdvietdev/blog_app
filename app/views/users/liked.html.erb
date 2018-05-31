@@ -3,7 +3,7 @@
   <%= render "user_info" %>
   <div class="col-md-8">
     <% if @entries.any? %>
-      <h3>Liked Post (<%= current_user.liking.count %>)</h3>
+      <h3><%= t ".liked" %> (<%= current_user.liking.count %>)</h3>
       <ol class="microposts">
         <%= render @entries %>
       </ol>

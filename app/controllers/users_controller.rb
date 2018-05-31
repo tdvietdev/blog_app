@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       UserMailer.account_activation(@user).deliver_now
-      flash[:info] = "Please check your email to activate your account."
+      flash[:info] = t ".info"
       redirect_to root_url
     else
       render :new
@@ -46,13 +46,13 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = "Following"
+    @title = t ".title"
     @users = @user.following.page(params[:page]).per 5
     render "show_follow"
   end
 
   def followers
-    @title = "Followers"
+    @title = t ".title"
     @users = @user.followers.page(params[:page]).per 5
     render "show_follow"
   end

@@ -1,20 +1,18 @@
 <aside class="col-md-4 text-center">
   <section class="user_info text-center">
     <%= gravatar_for @user %>
-    <h1>
-      <%= @user.name %>
-    </h1>
+    <h1><%= @user.name %></h1>
   </section>
   <section class="stats">
     <%= render "shared/stats" %>
   </section>
   <%= render "follow_form" if logged_in? %>
   <% if logged_in? and current_user.current_user?(@user) %>
-    <%= link_to "New post", new_entry_path, class: "btn btn-success" %>
+    <%= link_to t(".new"), new_entry_path, class: "btn btn-success" %>
     <br>
     <br>
-    <%= link_to "Liked", liked_user_path, class: "btn btn-info" %>
-    <%= link_to "Draft", draft_user_path, class: "btn btn-info"  %>
-    <%= link_to "Actived", actived_user_path, class: "btn btn-info"  %>
+    <%= link_to t(".liked"), liked_user_path, class: "btn btn-info" %>
+    <%= link_to t(".draft"), draft_user_path, class: "btn btn-info"  %>
+    <%= link_to t(".actived"), actived_user_path, class: "btn btn-info"  %>
   <% end %>
 </aside>
