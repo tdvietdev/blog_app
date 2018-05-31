@@ -73,6 +73,8 @@ en:
       edit: "Edit"
       delete: "Delete"
       confirm: "You sure?"
+    edit_comment:
+      submit: "Send"
   sessions:
     create:
       warning_active: "Account not activated.Check your email for the activation link."
@@ -108,6 +110,7 @@ en:
         account: "Account"
         profile: "Profile"
         settings: "Settings"
+        posts: "Posts"
 
   static_pages:
     about:
@@ -203,9 +206,13 @@ en:
       danger: "Not find micropost"
     entry:
       post: "Post"
+      posted: "Posted"
       ago: "ago."
       delete: "Delete"
+      edit: "Edit"
       confirm: "You sure?"
+      like: "Like"
+      comment: "Comment"
     form:
       content_placehoder: "Compose new micropost..."
     like:
@@ -223,12 +230,16 @@ en:
     show:
       posted: "Posted on"
       by: "by"
+      login: "Login for comment and like"
     new:
       button: "Post"
       title: "New post"
     edit:
       button: "Post"
       title: "Edit post"
+    index:
+      title: "Posts"
+      search: "Search"
 
   shared:
     error_messages:

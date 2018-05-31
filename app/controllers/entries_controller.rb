@@ -1,12 +1,17 @@
 class EntriesController < ApplicationController
-  before_action :load_entry, except: %i(index, new)
-  before_action :verify_entry, only: %i(edit, update, destroy)
+  before_action :load_entry, except: %i(index new)
+  before_action :verify_entry, only: %i(edit update destroy)
   def new
     @entry = current_user.entries.build if logged_in?
   end
 
   def show
     @comments = @entry.comments.root_comment
+    @post_same = @entry.same_author
+  end
+
+  def index
+    @entries = Entry.search(params[:search]).page(params[:page]).per Settings.per_page
   end
 
   def edit; end

@@ -1,2 +1,253 @@
 vi:
-  hello: "Chao the gioi!"
+  users:
+    create:
+      info: "Please check your email to activate your account."
+      danger: "Create user not success"
+      success: "Welcome to the Sample App!"
+    update:
+      success: "Thông tin đã được cập nhật"
+    destroy:
+      success: "User deleted"
+      danger: "User not deleted"
+    following:
+      title: "Following"
+    followers:
+      title: "Followers"
+    new:
+      title: "Sign up"
+      button: "Create my account"
+      confirmation: "Confirmation"
+      not_found: "Not found user!"
+    edit:
+      title: "Edit user"
+      h1: "Update your profile"
+      save: "Save"
+      change: "Change"
+      button: "Save change"
+      password_cf: "Confirm password"
+      danger: "Please log in."
+      not_found: "Not found!"
+    index:
+      title: "All user"
+      detele: "Delete"
+      search: "Search"
+    user:
+      accept_del: "Are you sure?"
+      detele: "Delete"
+    show:
+      not_found: "Not found user!"
+      post: "Posts"
+    show_follow:
+      not_found: "Not found user!"
+      post: "Posts"
+      profile: "View my profile"
+    load_user:
+      not_found: "Not found user!"
+    verify_user:
+      verify_user: "Not correct user!"
+    follow:
+      submit: "Follow"
+    unfollow:
+      submit: "Unfollow"
+    form:
+      size_image: "Maximum file size is 5MB. Please choose a smaller file."
+    unfollow:
+      submit: "Unfollow"
+    user_info:
+      new: "New post"
+      liked: "Liked"
+      draft: "Draft"
+      actived: "Actived"
+    actived:
+      post: "Post"
+    draft:
+      draft: "Draft post"
+    liked:
+      liked: "Liked post"
+
+  comments:
+    comment:
+      commented: "Commented"
+      ago: "ago."
+      reply: "Reply"
+      edit: "Edit"
+      delete: "Delete"
+      confirm: "You sure?"
+  sessions:
+    create:
+      warning_active: "Account not activated.Check your email for the activation link."
+      danger: "Invalid email/password combination"
+    new:
+      login: "Log in"
+      new: "User create?"
+      signup: "Sign up now!"
+      span_remember: "Remember me on this computer"
+      forgot: "Forgot your password?"
+
+  application:
+    logged_in_user:
+      danger: "Please log in."
+    full_title:
+      base_title: "Ruby on Rails Tutorial Sample App"
+    hello:
+      html: "Hello world"
+    load_user:
+      danger: "Not find user"
+
+  layouts:
+      footer:
+        vietnam: "Vietnamese"
+        english: "English"
+      header:
+        sample: "Sample App"
+        home: "Trang chủ"
+        help: "Help"
+        login: "Đăng nhập"
+        logout: "Đăng xuất"
+        user: "Người dùng"
+        account: "Tài khoản"
+        profile: "Thông tin cá nhân"
+        settings: "Cài đặt tài khoản"
+
+  static_pages:
+    about:
+      about: "About"
+      the: "The "
+      rails: "Ruby on Rails Tutorial"
+      is: "is a"
+      book: "book"
+      and: "and"
+      screen: "screencast series"
+      a: "to teach web development with"
+      ruby: "Ruby on Rails"
+      sample: ". This is the sample application for the tutorial."
+    contact:
+      contact: "Contact"
+      p: "Contact the Ruby on Rails Tutorial about the sample app at the"
+      contact_page: "contact page."
+    help:
+      help: "Help"
+      p: "Get help on the Ruby on Rails Tutorial at the"
+      help_page: "Rails Tutorial help page"
+      a: "To get help on this sample app, see the"
+      rails: "Ruby on Rails Tutorial"
+      name: " book."
+    home:
+      title: "Home"
+      h1: "Welcome to the Sample App"
+      h2: "This is the home page for the"
+      rails: "Ruby on Rails Tutorial"
+      h2_end: "sample application."
+      signup: "Sign up now!"
+      feed: "Các bài viết"
+      most: "Bài viết phổ biến"
+
+  shared:
+    error_messages:
+      error: "The form contains"
+      pluralize: "lỗi"
+    user_info:
+      my_profile: "Tài khoản của tôi"
+
+  user_mailer:
+    account_activation:
+      subject: "Account activation"
+      sample: "Sample App"
+      hi: "Hi"
+      welcome: "Welcome to the Sample App! Click on the link below to activate your account:"
+      activate: "Activate"
+    password_reset:
+      title: "Password reset"
+      text_link: "To reset your password click the link below:"
+      link_to: "Reset password"
+      expire: "This link will expire in two hours."
+      note: "If you did not request your password to be reset,
+        please ignore this email and your password will stay as it is."
+      subject: "Password reset"
+
+  account_activations:
+    edit:
+      success: "Account activated!"
+      danger_active: "Invalid activation link"
+
+  password_resets:
+      create:
+        info: "Email sent with password reset instructions"
+        danger: "Email address not found"
+      update:
+        error: "Can't be empty"
+        success: "Password has been reset."
+      get_user:
+        danger: "Email address not found."
+      valid_user:
+        danger: "User not valid."
+      check_expiration:
+        danger: "Password reset has expired."
+      new:
+        title: "Forgot password"
+        submit: "Submit"
+      edit:
+        title: "Reset password"
+        confirmation: "Confirmation"
+        update: "Update password"
+
+  entries:
+    create:
+      success: "Entry created!"
+    update:
+      success: "Entry updated!"
+    destroy:
+      success: "Micropost deleted"
+      danger: "Micropost not deleted"
+    correct_user:
+      danger: "Not find micropost"
+    entry:
+      post: "Post"
+      ago: "ago."
+      delete: "Delete"
+      confirm: "You sure?"
+    form:
+      content_placehoder: "Compose new micropost..."
+    like:
+      you_and: "You and "
+      other_liked: " other people liked this post"
+      people_liked: "other people liked this post"
+    mini_show:
+      confirm: "You sure?"
+      delete: "Delete"
+      edit: "Edit"
+    new_comment:
+      submit: "Comment"
+    unlike:
+      people_liked: "other people liked this post"
+    show:
+      posted: "Posted on"
+      by: "by"
+    new:
+      button: "Post"
+      title: "New post"
+    edit:
+      button: "Post"
+      title: "Edit post"
+    index:
+      title: "Posts"
+      search: "Search"
+
+  shared:
+    error_messages:
+      error: "The form contains"
+      pluralize: "Error"
+    user_info:
+      my_profile: "View my profile"
+      micropost: "Micropost"
+    micropost_form:
+      submit: "Post"
+      size_image: "Maximum file size is 5MB. Please choose a smaller file."
+      change: "Change"
+    stats:
+      following: "Đang theo dõi"
+      followers: "Người theo dõi"
+
+  model:
+    mocropost:
+      error: "Should be less than 5MB"

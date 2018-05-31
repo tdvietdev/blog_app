@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <h1 class="text-center"><%= t ".title" %></h1>
+    <%= form_tag entries_path, method: "get", enforce_utf8: false do %>
+      <%= text_field_tag :search, params[:search], class: "form-control" %>
+      <%= submit_tag t(".search"), :name => nil, class: "btn btn-success", width: "10px"  %>
+    <% end %>
+    <% if @entries.any? %>
+      <ol class="microposts">
+        <%= render @entries %>
+      </ol>
+      <%= paginate @entries, theme: "twitter-bootstrap-3" %>
+    <% end %>
+  </div>
+</div>

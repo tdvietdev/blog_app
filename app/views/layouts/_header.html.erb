@@ -13,7 +13,7 @@
       <ul class="nav navbar-nav navbar-right">
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to t(".home"), root_path %></li>
-          <li><%= link_to t(".help"), help_path %></li>
+          <li><%= link_to t(".posts"), entries_path %></li>
           <% if logged_in? %>
             <li><%= link_to t(".user"), users_path %></li>
             <li class="dropdown">
