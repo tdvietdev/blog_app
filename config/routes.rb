@@ -24,9 +24,9 @@ Rails.application.routes.draw do
   resources :likes, only: [:create, :destroy]
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :liked, :draft, :actived
     end
-    end
+  end
 
   resources :comments do
     member do

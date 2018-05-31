@@ -56,6 +56,18 @@ class UsersController < ApplicationController
     @users = @user.followers.page(params[:page]).per 5
     render "show_follow"
   end
+
+  def liked
+    @entries = current_user.liking.page(params[:page]).per 5
+  end
+
+  def draft
+    @entries = Entry.draft(current_user).page(params[:page]).per 5
+  end
+
+  def actived
+    @entries = Entry.actived(current_user).page(params[:page]).per 5
+  end
   
   private
 

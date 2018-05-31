@@ -8,10 +8,24 @@ class Entry < ApplicationRecord
   has_many :likes
   has_many :liked, through: :likes, source: :user
 
-  def test
-    arr = Like.select("entry_id, COUNT(id) as total_like").group(:entry_id).order("total_like desc").limit 5
-    arr.map!{|a| Entry.find_by id: a.entry_id}
+
+  class << self
+    def most_present
+      arr = Like.select("entry_id, COUNT(id) as total_like").group(:entry_id).order("total_like desc").limit 5
+      return arr.map{|a| Entry.find_by id: a.entry_id} if arr
+    end
+
+    def draft user
+      where(active: false, user_id: user.id)
+    end
+
+    def actived user
+      where(active: true, user_id: user.id)
+    end
+
+
   end
+
 
   if Rails.env.production?
     scope :by_followed, (lambda do |user_id|
