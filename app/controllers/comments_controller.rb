@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :load_comment, except: %i(index, new)
-  before_action :verify_comment, only: %i(update, delete)
+  before_action :load_comment, except: %i(index new)
+  before_action :verify_comment, only: %i(update delete)
   def new; end
 
   def create

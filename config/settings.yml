@@ -7,6 +7,8 @@ user:
     min_length: 6
   gravatar:
     size: 80
+  avatar:
+    size: 5
 
 per_page: 5
 

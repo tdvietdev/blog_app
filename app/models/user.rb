@@ -110,7 +110,7 @@ class User < ApplicationRecord
   end
 
   def avatar_size
-    if avatar.size > Settings.micropost.picture.size.megabytes
+    if avatar.size > Settings.user.avatar.size.megabytes
       errors.add(:avatar, t(".error"))
     end
   end

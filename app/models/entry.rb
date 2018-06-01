@@ -8,6 +8,10 @@ class Entry < ApplicationRecord
   has_many :likes
   has_many :liked, through: :likes, source: :user
 
+  def same_author
+    user.entries.order_by_created_at.limit 5
+  end
+
   class << self
     def most_present
       arr = Like.select("entry_id, COUNT(id) as total_like").group(:entry_id).order("total_like desc").
@@ -22,8 +26,23 @@ class Entry < ApplicationRecord
     def actived user
       where active: true, user_id: user.id
     end
-
-
+    if Rails.env.production?
+      def search search
+        if search
+          where("active = true AND (title LIKE ? OR description LIKE ?)", "%#{search}%", "%#{search}%")
+        else
+          all
+        end
+      end
+    else
+      def search search
+        if search
+          where("active = 1 AND (title LIKE ? OR description LIKE ?)", "%#{search}%", "%#{search}%")
+        else
+          all
+        end
+      end
+    end
   end
 
 

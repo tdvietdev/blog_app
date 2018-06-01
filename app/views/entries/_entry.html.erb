@@ -10,23 +10,23 @@
       <td><span class="content"><%= entry.description || "No description" %></span></td>
     </tr>
     <tr>
-      <td class="timestamp"><span>Posted <%= time_ago_in_words(entry.created_at) %> ago.</span>
+      <td class="timestamp"><span><%= t ".posted" %> <%= time_ago_in_words(entry.created_at) %> <%= t ".ago" %></span>
       by <span><b><%= link_to entry.user.name, entry.user %></b></span>
       </td>
     </tr>
     <tr>
       <td class="timestamp">
-        <span class="glyphicon glyphicon-thumbs-up"></span> <%= entry.liked.count %> Like &nbsp;&nbsp;
-        <span class="glyphicon glyphicon-comment"></span> <%= entry.comments.count %> Comment
+        <span class="glyphicon glyphicon-thumbs-up"></span> <%= entry.liked.count %> <%= t ".like" %>&nbsp;&nbsp;
+        <span class="glyphicon glyphicon-comment"></span> <%= entry.comments.count %> <%= t ".comment" %>
       </td>
     </tr>
     <tr>
       <td class="content">
         <% if logged_in? %>
           <% if current_user.current_user?(entry.user) %>
-            <%= link_to "delete", entry, method: :delete,
-                        data: { confirm: t(".confirm") } %>
-            <%= link_to "edit", edit_entry_path(entry) %>
+            <%= link_to t(".delete"), entry, method: :delete,
+              data: {confirm: t(".confirm")} %>
+            | <%= link_to t(".edit"), edit_entry_path(entry) %>
           <% end %>
         <% end %>
       </td>
